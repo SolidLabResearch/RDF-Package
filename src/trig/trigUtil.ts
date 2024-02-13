@@ -25,7 +25,8 @@ function indentTrigString (trigString: TrigString): TrigString {
   let result = ''
   const indent = '\t'
   let indented = false
-  for (const line of trigString.split('\n')) {
+  for (let line of trigString.split('\n')) {
+    line = line.replace(/\s\s+/g, '\t')
     if (line.includes('{')) {
       indented = true
       result += line + '\n'
